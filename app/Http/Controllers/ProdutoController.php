@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controller\Controller;
 use App\Models\Produto;
+use Illuminate\Support\Facades\Validator;
 
 class ProdutoController 
 {
@@ -76,9 +77,17 @@ class ProdutoController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $produto)
     {
-        //
+   
+         $validator = Validator::make( $produto->all(), [
+        'nome' => 'sometimes|required|nome',
+        'categoria' => 'sometimes|required|categoria',
+        'foto' => 'sometimes|required|foto',
+        'ativo' => 'sometimes|required|ativo',
+            ]);
+
+        return Produto::findOrFail($produto->idProduto)->update($produto->all());
     }
 
     /**

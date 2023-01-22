@@ -22,10 +22,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/produtos', [ProdutoController::class, 'index']);
-Route::post('/produto', [ProdutoController::class, 'store']);
 Route::get('/produto/{idProduto}', [ProdutoController::class, 'show']);
+Route::post('/produto', [ProdutoController::class, 'store']);
+Route::put('/produto', [ProdutoController::class, 'update']);
 
 Route::get('/usuarios', [UsuarioController::class, 'index']);
-Route::post('/usuario', [UsuarioController::class, 'store']);
 Route::get('/usuario/{idUsuario}', [UsuarioController::class, 'show']);
+Route::post('/usuario', [UsuarioController::class, 'store']);
 Route::put('/usuario', [UsuarioController::class, 'update']);

@@ -97,17 +97,6 @@ class UsuarioController
         'senha' => 'sometimes|required|senha',
         'trocar_senha' => 'sometimes|required|trocar_senha',
             ]);
-        //  $usuario->validate([
-
-        // 'nome' => 'sometimes|required|nome',
-        // 'sobrenome' => 'sometimes|required|sobrenome',
-        // 'senha' => 'sometimes|required|senha',
-        // 'email' => 'sometimes|required|email',
-        // 'ativo' => 'sometimes|required|ativo',
-        // 'senha' => 'sometimes|required|senha',
-        // 'trocar_senha' => 'sometimes|required|trocar_senha',
-
-        // ]);
 
         if ($usuario['senha'] != null) {
            $usuario['senha'] = Hash::make( $usuario->senha);
