@@ -7,6 +7,7 @@ use App\Http\Controller\Controller;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 
 class UsuarioController 
@@ -49,6 +50,7 @@ class UsuarioController
         'ativo' => 'required',
         'senha' => 'required',
         'trocar_senha' => 'required',
+        'telefone' => 'required',
 
         ]);
          $usuario['senha'] = Hash::make( $usuario->senha);
@@ -63,7 +65,7 @@ class UsuarioController
      */
     public function show($idUsuario)
     {
-        return Produto::findOrFail($idUsuario);
+        return Usuario::findOrFail($idUsuario);
     }
 
     /**
@@ -96,6 +98,7 @@ class UsuarioController
         'ativo' => 'sometimes|required|ativo',
         'senha' => 'sometimes|required|senha',
         'trocar_senha' => 'sometimes|required|trocar_senha',
+        'telefone' => 'sometimes|required|telefone',
             ]);
 
         if ($usuario['senha'] != null) {
@@ -114,5 +117,16 @@ class UsuarioController
     public function destroy($id)
     {
         //
+    }
+    public function login(Request $usuario)
+    {
+       $usuario['senha'] = Hash::make( $usuario->senha);
+         
+        
+        return DB::table('usuarios')
+           ->select('nome', 'email')
+                ->where('email', '=', $usuario->email)
+                // ->where('senha', '=', $usuario->senha)
+           ->get();
     }
 }

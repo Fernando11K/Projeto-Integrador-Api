@@ -28,6 +28,7 @@ class Usuario extends Model
         'email',
         'ativo',
         'trocar_senha',
+        'telefone',
 
     ];
 
