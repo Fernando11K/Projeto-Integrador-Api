@@ -17,8 +17,8 @@ use App\Http\Controllers\UsuarioController;
 */
 
 // var_dump($_SERVER);
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->get('/usuario', function (Request $request) {
+    return $request->usuario();
 });
 
 Route::get('/produtos', [ProdutoController::class, 'index']);
@@ -30,4 +30,5 @@ Route::get('/usuarios', [UsuarioController::class, 'index']);
 Route::get('/usuario/{idUsuario}', [UsuarioController::class, 'show']);
 Route::post('/usuario', [UsuarioController::class, 'store']);
 Route::post('/usuario/login', [UsuarioController::class, 'login']);
+Route::post('/auth', [UsuarioController::class, 'auth']);
 Route::put('/usuario', [UsuarioController::class, 'update']);

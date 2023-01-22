@@ -8,10 +8,27 @@ use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class UsuarioController 
 {
+
+    public function auth(Request $usuario){
+
+        $usuario->validate( [
+            'email' => 'required',
+            'senha' => 'required'
+        ]);
+
+        $credentials = ['email' => $usuario->email, 'password' => $usuario->senha ];
+        if(Auth::attempt($credentials)){
+            dd('Logou');
+        }else {
+             dd('Não logou');
+            //  echo $usuario->senha;
+        }
+    }
     /**
      * Display a listing of the resource.
      *
