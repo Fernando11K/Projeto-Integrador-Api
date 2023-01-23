@@ -25,7 +25,7 @@ class LoginController
             return response()->json(['sucess' => true], 200);
           
         }
-     return response()->json(['type' => 'ERROR', 'error-msg' => 'Not found'], 404);
+     return response()->json(['type' => 'INFORMATION', 'message' => 'Não autenticado'], 203);
     }
 
 }
