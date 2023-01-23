@@ -14,21 +14,21 @@ use Illuminate\Support\Facades\Auth;
 class UsuarioController 
 {
 
-    public function auth(Request $usuario){
+    // public function auth(Request $usuario){
 
-        $usuario->validate( [
-            'email' => 'required',
-            'senha' => 'required'
-        ]);
+    //     $usuario->validate( [
+    //         'email' => 'required',
+    //         'senha' => 'required'
+    //     ]);
 
-        $credentials = ['email' => $usuario->email, 'password' => $usuario->senha ];
-        if(Auth::attempt($credentials)){
-            dd('Logou');
-        }else {
-             dd('Não logou');
-            //  echo $usuario->senha;
-        }
-    }
+    //     $credentials = ['email' => $usuario->email, 'password' => $usuario->senha ];
+    //     if(Auth::attempt($credentials)){
+    //         dd('Logou');
+    //     }else {
+    //          dd('Não logou');
+    //         //  echo $usuario->senha;
+    //     }
+    // }
     /**
      * Display a listing of the resource.
      *
