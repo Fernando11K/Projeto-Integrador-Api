@@ -21,8 +21,8 @@ class LoginController
         
         if (Auth::attempt($credenciais)) {
             // $usuario->session()->regenerate();
-
-            return response()->json(['sucess' => true], 200);
+            $usuario = Auth::user();
+            return response()->json(['sucess' => true,'usuario' =>  $usuario], 200);
           
         }
      return response()->json(['type' => 'INFORMATION', 'message' => 'Não autenticado'], 203);

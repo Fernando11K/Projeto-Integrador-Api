@@ -135,15 +135,15 @@ class UsuarioController
     {
         //
     }
-    public function login(Request $usuario)
-    {
-       $usuario['senha'] = Hash::make( $usuario->senha);
+    // public function login(Request $usuario)
+    // {
+    //    $usuario['senha'] = Hash::make( $usuario->senha);
          
         
-        return DB::table('usuarios')
-           ->select('nome', 'email')
-                ->where('email', '=', $usuario->email)
-                // ->where('senha', '=', $usuario->senha)
-           ->get();
-    }
+    //     return DB::table('usuarios')
+    //        ->select('nome', 'email')
+    //             ->where('email', '=', $usuario->email)
+    //             // ->where('senha', '=', $usuario->senha)
+    //        ->get();
+    // }
 }
